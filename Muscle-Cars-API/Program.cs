@@ -1,11 +1,27 @@
+using Microsoft.EntityFrameworkCore;
+using Muscle_Cars_API.Interfaces;
+using Muscle_Cars_API.Repositories;
+using Muscle_Cars_API.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Add services to the container.]
+builder.Services.AddDbContext<ConnectionContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("ConnectionDatabase")));
+builder.Services.AddScoped<IUsuariosRepository, UsuariosRepository>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAllOrigins", builder =>
+        builder.AllowAnyOrigin()
+               .AllowAnyHeader()
+               .AllowAnyMethod());
+});
 
 var app = builder.Build();
 
