@@ -2,7 +2,9 @@
 
 namespace Muscle_Cars_API.Controllers
 {
-    public class ProdutosController : Controller
+    [ApiController]
+    [Route("Api/Usuarios")]
+    public class ProdutosController : ControllerBase
     {
         public IActionResult Index()
         {

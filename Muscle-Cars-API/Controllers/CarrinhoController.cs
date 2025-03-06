@@ -1,12 +1,24 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Muscle_Cars_API.Interfaces;
 
 namespace Muscle_Cars_API.Controllers
 {
-    public class CarrinhoController : Controller
+    [ApiController]
+    [Route("Api/Carrinho")]
+    public class CarrinhoController : ControllerBase
     {
-        public IActionResult Index()
+        private readonly ICarrinhoRepository _carrinhoRepository;
+        public CarrinhoController(ICarrinhoRepository carrinhoRepository)
         {
-            return View();
+            _carrinhoRepository = carrinhoRepository;
+        }
+
+        [HttpPost]
+        [Route("ListCarrinho")]
+        public async Task<IActionResult> ListCarrinho()
+        {
+            var carrinho = await _carrinhoRepository.Get();
+            return Ok(carrinho);
         }
     }
 }
