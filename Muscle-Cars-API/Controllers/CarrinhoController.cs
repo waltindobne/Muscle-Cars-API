@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Muscle_Cars_API.Interfaces;
+using Muscle_Cars_API.Model;
+using Muscle_Cars_API.Repositories;
 
 namespace Muscle_Cars_API.Controllers
 {
@@ -18,6 +20,14 @@ namespace Muscle_Cars_API.Controllers
         public async Task<IActionResult> ListCarrinho()
         {
             var carrinho = await _carrinhoRepository.Get();
+            return Ok(carrinho);
+        }
+
+        [HttpPost]
+        [Route("Adicionar")]
+        public IActionResult NewUser(Carrinho carrinho)
+        {
+            _carrinhoRepository.Add(carrinho);
             return Ok(carrinho);
         }
     }

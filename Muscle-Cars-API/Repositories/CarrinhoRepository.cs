@@ -2,6 +2,7 @@
 using Muscle_Cars_API.Interfaces;
 using Muscle_Cars_API.Model;
 using Muscle_Cars_API.Services;
+using System.Threading.Tasks;
 
 namespace Muscle_Cars_API.Repositories
 {
@@ -16,6 +17,11 @@ namespace Muscle_Cars_API.Repositories
         public async Task<List<Carrinho>> Get()
         {
             return await _context.Carrinho.ToListAsync();
+        }
+        public void Add(Carrinho carrinho)
+        {
+            _context.Carrinho.Add(carrinho);
+            _context.SaveChanges();
         }
     }
 }

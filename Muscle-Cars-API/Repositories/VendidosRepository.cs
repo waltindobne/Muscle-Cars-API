@@ -17,5 +17,10 @@ namespace Muscle_Cars_API.Repositories
         {
             return await _context.Vendidos.ToListAsync();
         }
+        public void Add(Vendidos vendidos)
+        {
+            _context.Vendidos.Add(vendidos);
+            _context.SaveChanges();
+        }
     }
 }

@@ -5,5 +5,6 @@ namespace Muscle_Cars_API.Interfaces
     public interface IVendidosRepository
     {
         Task<List<Vendidos>> Get();
+        void Add(Vendidos vendidos);
     }
 }

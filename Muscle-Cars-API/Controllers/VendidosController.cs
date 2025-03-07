@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Muscle_Cars_API.Interfaces;
+using Muscle_Cars_API.Model;
 
 namespace Muscle_Cars_API.Controllers
 {
@@ -19,6 +20,14 @@ namespace Muscle_Cars_API.Controllers
         {
             var usuarios = await _vendidosRepository.Get();
             return Ok(usuarios);
+        }
+
+        [HttpPost]
+        [Route("adicionar")]
+        public IActionResult NewVenda (Vendidos vendidos)
+        {
+            _vendidosRepository.Add(vendidos);
+            return Ok(vendidos);
         }
     }
 }
