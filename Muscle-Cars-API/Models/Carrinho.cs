@@ -1,11 +1,14 @@
-﻿namespace Muscle_Cars_API.Model
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Muscle_Cars_API.Model
 {
+    [Table("carrinho")]
     public class Carrinho
     {
+        [Key]
         public int id { get; set; }
-        public int idUsuario { get; set; }
-        public int idProduto { get; set; }
-
-        public Produtos? produto { get; set; }
-    }
+        public int idusuario { get; set; }
+        public int idproduto { get; set; }
+}
 }

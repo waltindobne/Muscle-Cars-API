@@ -1,11 +1,16 @@
-﻿namespace Muscle_Cars_API.Model
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Muscle_Cars_API.Model
 {
+    [Table("produtos")]
     public class Produtos
     {
+        [Key]
         public int id { get; set; }
-        public string? nomeProd { get; set; }
+        public string? nomeprod { get; set; }
         public string? quantidade { get; set; }
         public double valor { get; set; }
-        public string? linkImg { get; set; }
+        public string? linkimg { get; set; }
     }
 }

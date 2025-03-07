@@ -1,14 +1,24 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Muscle_Cars_API.Interfaces;
 
 namespace Muscle_Cars_API.Controllers
 {
     [ApiController]
-    [Route("Api/Usuarios")]
+    [Route("Api/Vendidos")]
     public class VendidosController : ControllerBase
     {
-        public IActionResult Index()
+        private readonly IVendidosRepository _vendidosRepository;
+        public VendidosController(IVendidosRepository vendidosRepository)
         {
-            return View();
+            _vendidosRepository = vendidosRepository;
+        }
+
+        [HttpPost]
+        [Route("ListVendidos")]
+        public async Task<IActionResult> ListUsuarios()
+        {
+            var usuarios = await _vendidosRepository.Get();
+            return Ok(usuarios);
         }
     }
 }

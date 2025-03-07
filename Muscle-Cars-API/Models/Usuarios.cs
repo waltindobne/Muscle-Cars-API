@@ -12,7 +12,7 @@ namespace Muscle_Cars_API.Model
         public string? email { get; set; }
         public string? senha { get; set; }
 
-    public Usuarios(string nome, string email, string senha)
+        public Usuarios(string nome, string email, string senha)
         {
             this.nome = nome;
             this.email = email;
