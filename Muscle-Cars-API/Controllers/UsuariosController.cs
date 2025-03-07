@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Muscle_Cars_API.Interfaces;
 using Muscle_Cars_API.Model;
+using Muscle_Cars_API.Repositories;
 using Muscle_Cars_API.Services;
 
 namespace Muscle_Cars_API.Controllers
@@ -56,6 +57,20 @@ namespace Muscle_Cars_API.Controllers
             }
 
             return Ok(Perfil);
+        }
+
+        [HttpDelete]
+        [Route("Remover/{id}")]
+        public async Task<IActionResult> DelUser(int id)
+        {
+            bool removido = await _usuariosRepository.Remove(id);
+
+            if (!removido)
+            {
+                return NotFound(new { message = "usuario não encontrado." });
+            }
+
+            return Ok(new { message = "Usuario removido com sucesso." });
         }
     }
 }

@@ -13,7 +13,7 @@ namespace Muscle_Cars_API.Controllers
             _carrinhoRepository = carrinhoRepository;
         }
 
-        [HttpPost]
+        [HttpGet]
         [Route("ListCarrinho")]
         public async Task<IActionResult> ListCarrinho()
         {

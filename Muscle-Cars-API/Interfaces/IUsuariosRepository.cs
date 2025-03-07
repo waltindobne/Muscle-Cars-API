@@ -8,5 +8,6 @@ namespace Muscle_Cars_API.Interfaces
         Task<Usuarios> Login(int id, string email, string senha);
         void Add(Usuarios usuarios);
         Task<Usuarios> BuscarPorToken(string token);
+        Task<bool> Remove(int id);
     }
 }

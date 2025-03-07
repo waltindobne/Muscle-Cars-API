@@ -34,5 +34,12 @@ namespace Muscle_Cars_API.Repositories
             return busca;
         }
 
+        public async Task<bool> Remove(int id)
+        {
+            var user = await _context.Usuarios.FirstOrDefaultAsync(x => x.id == id);
+            _context.Usuarios.Remove(user);
+            await _context.SaveChangesAsync();
+            return true;
+        }
     }
 }

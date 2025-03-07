@@ -13,7 +13,7 @@ namespace Muscle_Cars_API.Controllers
             _vendidosRepository = vendidosRepository;
         }
 
-        [HttpPost]
+        [HttpGet]
         [Route("ListVendidos")]
         public async Task<IActionResult> ListUsuarios()
         {
