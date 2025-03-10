@@ -10,7 +10,7 @@ namespace Muscle_Cars_API.Model
         public int id { get; set; }
         public string? nomeprod { get; set; }
         public string? quantidade { get; set; }
-        public double valor { get; set; }
+        public string? valor { get; set; }
         public string? linkimg { get; set; }
     }
 }
