@@ -53,7 +53,7 @@ namespace Muscle_Cars_API.Controllers
         }
 
         [HttpDelete]
-        [Route("Remover/{id}")]
+        [Route("Remover")]
         public async Task<IActionResult> DelProd(int id)
         {
             bool removido = await _produtosRepository.Remove(id);
